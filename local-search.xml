@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>MarkDown 图床搭建</title>
+    <link href="/2022/03/27/MarkDown-%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/"/>
+    <url>/2022/03/27/MarkDown-%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>搭建gitee仓库作为Hexo博客图床</p><p>实现Typora利用PicGo自动上传图片到图床</p><h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><p>[<a href="https://typora.io/]">https://typora.io/]</a>: </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>MarkDown</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MarkDown</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Reverse Learning - Day1</title>
     <link href="/2022/03/27/Reverse-Learning-Day1/"/>
     <url>/2022/03/27/Reverse-Learning-Day1/</url>
