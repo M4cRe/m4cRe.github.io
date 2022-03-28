@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://gitee.com/m4cre/article-images/raw/master/typora/202203282038706.png">
 <meta property="og:image" content="https://gitee.com/m4cre/article-images/raw/master/typora/202203282046979.png">
 <meta property="article:published_time" content="2022-03-28T12:51:35.288Z">
-<meta property="article:modified_time" content="2022-03-28T12:52:14.362Z">
+<meta property="article:modified_time" content="2022-03-28T12:54:10.597Z">
 <meta property="article:author" content="M4cRe">
 <meta property="article:tag" content="Reverse">
 <meta name="twitter:card" content="summary_large_image">
@@ -243,25 +243,25 @@
               <meta name="referrer" content="no-referrer">
 
 <h1 id="BUUCTF"><a href="#BUUCTF" class="headerlink" title="BUUCTF"></a>BUUCTF</h1><h3 id="新年快乐"><a href="#新年快乐" class="headerlink" title="新年快乐"></a>新年快乐</h3><p>file文件发现有壳，使用upx进行脱壳</p>
-<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203281944086.png" srcset="/img/loading.gif" lazyload alt="image-20220328194454999"></p>
-<p>IDA打开，分析main函数，发现flag是Str2，strcpy就是把字符串赋给Str2<img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203281951401.png" srcset="/img/loading.gif" lazyload alt="image-20220328195101368"></p>
+<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203281944086.png" srcset="/img/loading.gif" lazyload></p>
+<p>IDA打开，分析main函数，发现flag是Str2，strcpy就是把字符串赋给Str2<br><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203281951401.png" srcset="/img/loading.gif" lazyload></p>
 <p>flag{HappyNewYear!}</p>
 <h3 id="xor"><a href="#xor" class="headerlink" title="xor"></a>xor</h3><p>看题目知道是异或，打开main函数，逻辑是字符和下一位进行异或</p>
-<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282005799.png" srcset="/img/loading.gif" lazyload alt="image-20220328200553768"></p>
+<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282005799.png" srcset="/img/loading.gif" lazyload></p>
 <p>把所有的数据统一成ascii码，编写脚本</p>
-<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282009891.png" srcset="/img/loading.gif" lazyload alt="image-20220328200950857"></p>
+<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282009891.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight python"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs python">a=[<span class="hljs-number">0x66</span>,<span class="hljs-number">0x0A</span>,<span class="hljs-number">0x6b</span>,<span class="hljs-number">0x0C</span>,<span class="hljs-number">0x77</span>,<span class="hljs-number">0x26</span>,<br>   <span class="hljs-number">0x4f</span>,<span class="hljs-number">0x2e</span>,<span class="hljs-number">0x40</span>,<span class="hljs-number">0x11</span>,<span class="hljs-number">0x78</span>,<span class="hljs-number">0x0D</span>,<br>   <span class="hljs-number">0x5a</span>,<span class="hljs-number">0x3b</span>,<span class="hljs-number">0x55</span>,<span class="hljs-number">0x11</span>,<br>   <span class="hljs-number">0x70</span>,<span class="hljs-number">0x19</span>,<span class="hljs-number">0x46</span>,<span class="hljs-number">0x1F</span>,<span class="hljs-number">0x76</span>,<span class="hljs-number">0x22</span>,<br>   <span class="hljs-number">0x4d</span>,<span class="hljs-number">0x23</span>,<span class="hljs-number">0x44</span>,<span class="hljs-number">0x0E</span>,<span class="hljs-number">0x67</span>,<br>   <span class="hljs-number">0x06</span>,<span class="hljs-number">0x68</span>,<span class="hljs-number">0x0F</span>,<span class="hljs-number">0x47</span>,<span class="hljs-number">0x32</span>,<span class="hljs-number">0x4f</span>]<br>s=<span class="hljs-string">&#x27; &#x27;</span><br>s+=<span class="hljs-string">&#x27;f&#x27;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">len</span>(a)):<br>    s+=<span class="hljs-built_in">chr</span>(a[i]^a[i-<span class="hljs-number">1</span>])<br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></table></figure>
 
 <p>flag{QianQiuWanDai_YiTongJiangHu}</p>
 <h3 id="helloword"><a href="#helloword" class="headerlink" title="helloword"></a>helloword</h3><p>apk文件，扔jadx跑一下，main函数里直接看到flag</p>
-<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282027394.png" srcset="/img/loading.gif" lazyload alt="image-20220328202729357"></p>
+<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282027394.png" srcset="/img/loading.gif" lazyload></p>
 <p>flag{7631a988259a00816deda84afb29430a}</p>
 <h3 id="reverse3"><a href="#reverse3" class="headerlink" title="reverse3"></a>reverse3</h3><p>IDA查看伪代码</p>
-<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282034735.png" srcset="/img/loading.gif" lazyload alt="image-20220328203459699"></p>
+<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282034735.png" srcset="/img/loading.gif" lazyload></p>
 <p>输入的字符串经过sub_4110BE运算赋给Destination，查看算法发现是Base64加密</p>
-<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282038706.png" srcset="/img/loading.gif" lazyload alt="image-20220328203818677"></p>
+<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282038706.png" srcset="/img/loading.gif" lazyload></p>
 <p>再查看一下str2的内容</p>
-<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282046979.png" srcset="/img/loading.gif" lazyload alt="image-20220328204624927"></p>
+<p><img src="https://gitee.com/m4cre/article-images/raw/master/typora/202203282046979.png" srcset="/img/loading.gif" lazyload></p>
 <p>回头分析main函数发现Destination每一位加j，开始写脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> base64<br><span class="hljs-built_in">str</span>=<span class="hljs-string">&#x27;e3nifIH9b_C@n@dH&#x27;</span><br>flag=<span class="hljs-string">&#x27; &#x27;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(<span class="hljs-built_in">str</span>)):<br>    flag+=<span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(<span class="hljs-built_in">str</span>[i])-i)<br>flag=base64.b64decode(flag)<br><span class="hljs-built_in">print</span>(flag)<br></code></pre></td></tr></table></figure>
 
