@@ -39,30 +39,25 @@
 <meta name="twitter:image" content="https://m4cre-1309984225.cos.ap-beijing.myqcloud.com/typora/202204020223948.png">
   
   
+  
   <title>Reverse Learning - Day5 - By WZH</title>
 
   <link  rel="stylesheet" href="https://unpkg.zhimg.com/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://unpkg.zhimg.com/github-markdown-css@4/github-markdown.min.css" />
+
   <link  rel="stylesheet" href="https://unpkg.zhimg.com/hint.css@2/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://unpkg.zhimg.com/highlight.js@10/styles/tokyo-night-dark.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://unpkg.zhimg.com/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://unpkg.zhimg.com/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -71,21 +66,42 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":false,"typeSpeed":80,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.1.0"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>By WZH</strong>
@@ -106,9 +122,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -118,9 +134,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -130,9 +146,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -142,9 +158,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -154,9 +170,9 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -164,14 +180,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -179,52 +197,61 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/index.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Reverse Learning - Day5">
-              
-                Reverse Learning - Day5
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-02 03:57" pubdate>
-        2022年4月2日 凌晨
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      2.3k 字
-    </span>
   
 
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/index.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Reverse Learning - Day5</span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-02 03:57" pubdate>
+          2022年4月2日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          227 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -233,16 +260,21 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Reverse Learning - Day5</h1>
+            <h1 id="seo-header">Reverse Learning - Day5</h1>
             
-            <div class="markdown-body">
-              <meta name="referrer" content="no-referrer">
+            
+              <div class="markdown-body">
+                
+                <meta name="referrer" content="no-referrer">
 
 <h1 id="BUUCTF"><a href="#BUUCTF" class="headerlink" title="BUUCTF"></a>BUUCTF</h1><h3 id="JustRE"><a href="#JustRE" class="headerlink" title="JustRE"></a>JustRE</h3><p>BJDCTF2020的签到题，查看字符串，定位到代码</p>
 <p><img src="https://m4cre-1309984225.cos.ap-beijing.myqcloud.com/typora/202204020223948.png" srcset="/img/loading.gif" lazyload></p>
@@ -254,18 +286,18 @@
 <p>第3，5，31，15位经过加密重新赋值</p>
 <p>最后进一遍循环,把前16位和后16位颠倒</p>
 <p>手算也可以，直接跑脚本</p>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">Str = <span class="hljs-string">&#x27;40c04462b4dd7c450528835cca15&#x27;</span><br>x = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> Str]<br>x[<span class="hljs-number">2</span>] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(x[<span class="hljs-number">2</span>]) + <span class="hljs-built_in">ord</span>(x[<span class="hljs-number">3</span>]) - <span class="hljs-number">50</span>)<br>x[<span class="hljs-number">4</span>] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(x[<span class="hljs-number">2</span>]) + <span class="hljs-built_in">ord</span>(x[<span class="hljs-number">5</span>]) - <span class="hljs-number">48</span>)<br>x[<span class="hljs-number">30</span>] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(x[<span class="hljs-number">31</span>]) + <span class="hljs-built_in">ord</span>(x[<span class="hljs-number">9</span>]) - <span class="hljs-number">48</span>)<br>x[<span class="hljs-number">14</span>] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(x[<span class="hljs-number">27</span>]) + <span class="hljs-built_in">ord</span>(x[<span class="hljs-number">28</span>]) - <span class="hljs-number">97</span>)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">16</span>):<br>  x[i],x[<span class="hljs-number">31</span>-i] = x[<span class="hljs-number">31</span>-i],x[i]<br>  <br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;flag&#123;&quot;</span>+<span class="hljs-string">&#x27;&#x27;</span>.join(x)+<span class="hljs-string">&quot;&#125;&quot;</span>)<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">Str = <span class="hljs-string">&#x27;40c04462b4dd7c450528835cca15&#x27;</span><br>x = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> Str]<br>x[<span class="hljs-number">2</span>] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(x[<span class="hljs-number">2</span>]) + <span class="hljs-built_in">ord</span>(x[<span class="hljs-number">3</span>]) - <span class="hljs-number">50</span>)<br>x[<span class="hljs-number">4</span>] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(x[<span class="hljs-number">2</span>]) + <span class="hljs-built_in">ord</span>(x[<span class="hljs-number">5</span>]) - <span class="hljs-number">48</span>)<br>x[<span class="hljs-number">30</span>] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(x[<span class="hljs-number">31</span>]) + <span class="hljs-built_in">ord</span>(x[<span class="hljs-number">9</span>]) - <span class="hljs-number">48</span>)<br>x[<span class="hljs-number">14</span>] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(x[<span class="hljs-number">27</span>]) + <span class="hljs-built_in">ord</span>(x[<span class="hljs-number">28</span>]) - <span class="hljs-number">97</span>)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">16</span>):<br>  x[i],x[<span class="hljs-number">31</span>-i] = x[<span class="hljs-number">31</span>-i],x[i]<br>  <br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;flag&#123;&quot;</span>+<span class="hljs-string">&#x27;&#x27;</span>.join(x)+<span class="hljs-string">&quot;&#125;&quot;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>flag{59acc538825054c7de4b26440c0999dd}</p>
 <h3 id="pyre"><a href="#pyre" class="headerlink" title="pyre"></a>pyre</h3><p>pyc文件，直接进行反编译</p>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Welcome to Re World!&#x27;</span><br><span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Your input1 is your flag~&#x27;</span><br>l = <span class="hljs-built_in">len</span>(input1)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(l):<br>    num = ((input1[i] + i) % <span class="hljs-number">128</span> + <span class="hljs-number">128</span>) % <span class="hljs-number">128</span><br>    code += num<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(l - <span class="hljs-number">1</span>):<br>    code[i] = code[i] ^ code[(i + <span class="hljs-number">1</span>)]<br><br><span class="hljs-built_in">print</span> code<br>code = [<span class="hljs-string">&#x27;\x1f&#x27;</span>, <span class="hljs-string">&#x27;\x12&#x27;</span>, <span class="hljs-string">&#x27;\x1d&#x27;</span>, <span class="hljs-string">&#x27;(&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;\x01&#x27;</span>, <span class="hljs-string">&#x27;\x06&#x27;</span>, <span class="hljs-string">&#x27;\x14&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;,&#x27;</span>,<br>        <span class="hljs-string">&#x27;\x1b&#x27;</span>, <span class="hljs-string">&#x27;U&#x27;</span>, <span class="hljs-string">&#x27;?&#x27;</span>, <span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>, <span class="hljs-string">&#x27;:&#x27;</span>, <span class="hljs-string">&#x27;\x01&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>, <span class="hljs-string">&#x27;;&#x27;</span>, <span class="hljs-string">&#x27;%&#x27;</span>, <span class="hljs-string">&#x27;\x13&#x27;</span>]<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Welcome to Re World!&#x27;</span><br><span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;Your input1 is your flag~&#x27;</span><br>l = <span class="hljs-built_in">len</span>(input1)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(l):<br>    num = ((input1[i] + i) % <span class="hljs-number">128</span> + <span class="hljs-number">128</span>) % <span class="hljs-number">128</span><br>    code += num<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(l - <span class="hljs-number">1</span>):<br>    code[i] = code[i] ^ code[(i + <span class="hljs-number">1</span>)]<br><br><span class="hljs-built_in">print</span> code<br>code = [<span class="hljs-string">&#x27;\x1f&#x27;</span>, <span class="hljs-string">&#x27;\x12&#x27;</span>, <span class="hljs-string">&#x27;\x1d&#x27;</span>, <span class="hljs-string">&#x27;(&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;\x01&#x27;</span>, <span class="hljs-string">&#x27;\x06&#x27;</span>, <span class="hljs-string">&#x27;\x14&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;,&#x27;</span>,<br>        <span class="hljs-string">&#x27;\x1b&#x27;</span>, <span class="hljs-string">&#x27;U&#x27;</span>, <span class="hljs-string">&#x27;?&#x27;</span>, <span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>, <span class="hljs-string">&#x27;:&#x27;</span>, <span class="hljs-string">&#x27;\x01&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>, <span class="hljs-string">&#x27;;&#x27;</span>, <span class="hljs-string">&#x27;%&#x27;</span>, <span class="hljs-string">&#x27;\x13&#x27;</span>]<br></code></pre></td></tr></table></figure>
 
 <p>这道题主要考的的是模运算</p>
 <p>(a+b)%c &#x3D; (a%c+b%c)%c </p>
 <p>所以代码中的((input1[i] + i) % 128 + 128) % 128可以转换成(input1[i] + i) % 128</p>
 <p>下面就是一个基本的异或</p>
 <p>直接开始写脚本</p>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">code = [<span class="hljs-string">&#x27;\x1f&#x27;</span>, <span class="hljs-string">&#x27;\x12&#x27;</span>, <span class="hljs-string">&#x27;\x1d&#x27;</span>, <span class="hljs-string">&#x27;(&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;\x01&#x27;</span>, <span class="hljs-string">&#x27;\x06&#x27;</span>, <span class="hljs-string">&#x27;\x14&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;,&#x27;</span>,<br>        <span class="hljs-string">&#x27;\x1b&#x27;</span>, <span class="hljs-string">&#x27;U&#x27;</span>, <span class="hljs-string">&#x27;?&#x27;</span>, <span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>, <span class="hljs-string">&#x27;:&#x27;</span>, <span class="hljs-string">&#x27;\x01&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>, <span class="hljs-string">&#x27;;&#x27;</span>, <span class="hljs-string">&#x27;%&#x27;</span>, <span class="hljs-string">&#x27;\x13&#x27;</span>]<br>flag = <span class="hljs-string">&#x27;&#x27;</span><br>l = <span class="hljs-built_in">len</span>(code)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(l-<span class="hljs-number">2</span>,-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>):<br>  code[i] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(code[i]) ^ <span class="hljs-built_in">ord</span>(code[(i+<span class="hljs-number">1</span>)]))<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(l):<br>    flag += <span class="hljs-built_in">chr</span>((<span class="hljs-built_in">ord</span>(code[i])-i)%<span class="hljs-number">128</span>)<br><span class="hljs-built_in">print</span>(flag)<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">code = [<span class="hljs-string">&#x27;\x1f&#x27;</span>, <span class="hljs-string">&#x27;\x12&#x27;</span>, <span class="hljs-string">&#x27;\x1d&#x27;</span>, <span class="hljs-string">&#x27;(&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;\x01&#x27;</span>, <span class="hljs-string">&#x27;\x06&#x27;</span>, <span class="hljs-string">&#x27;\x14&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;,&#x27;</span>,<br>        <span class="hljs-string">&#x27;\x1b&#x27;</span>, <span class="hljs-string">&#x27;U&#x27;</span>, <span class="hljs-string">&#x27;?&#x27;</span>, <span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>, <span class="hljs-string">&#x27;:&#x27;</span>, <span class="hljs-string">&#x27;\x01&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>, <span class="hljs-string">&#x27;;&#x27;</span>, <span class="hljs-string">&#x27;%&#x27;</span>, <span class="hljs-string">&#x27;\x13&#x27;</span>]<br>flag = <span class="hljs-string">&#x27;&#x27;</span><br>l = <span class="hljs-built_in">len</span>(code)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(l-<span class="hljs-number">2</span>,-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>):<br>  code[i] = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">ord</span>(code[i]) ^ <span class="hljs-built_in">ord</span>(code[(i+<span class="hljs-number">1</span>)]))<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(l):<br>    flag += <span class="hljs-built_in">chr</span>((<span class="hljs-built_in">ord</span>(code[i])-i)%<span class="hljs-number">128</span>)<br><span class="hljs-built_in">print</span>(flag)<br></code></pre></td></tr></table></figure>
 
 <p>flag{Just_Re_1s_Ha66y!}</p>
 <h3 id="easyre"><a href="#easyre" class="headerlink" title="easyre"></a>easyre</h3><p>upx去壳</p>
@@ -278,46 +310,102 @@
 <p><img src="https://m4cre-1309984225.cos.ap-beijing.myqcloud.com/typora/202204020339312.png" srcset="/img/loading.gif" lazyload></p>
 <p>意思是在这串字符中查找v4的字符，方法是字符下标-1等于v4字符的ASCII码</p>
 <p>开始写脚本（ ‘前要加上\进行转译）</p>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">key = <span class="hljs-string">&#x27;~&#125;|&#123;zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?&gt;=&lt;;:9876543210/.-,+*)(\&#x27;&amp;%$# !&quot;&#x27;</span>  <br>v4 = [<span class="hljs-number">42</span>,<span class="hljs-number">70</span>,<span class="hljs-number">39</span>,<span class="hljs-number">34</span>,<span class="hljs-number">78</span>,<span class="hljs-number">44</span>,<span class="hljs-number">34</span>,<span class="hljs-number">40</span>,<span class="hljs-number">73</span>,<span class="hljs-number">63</span>,<span class="hljs-number">43</span>,<span class="hljs-number">64</span>]<br>x = []<br>flag = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> v4:<br>  x.append(key.find(<span class="hljs-built_in">chr</span>(i))+<span class="hljs-number">1</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> x:<br>  flag += <span class="hljs-built_in">chr</span>(i)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;flag&#123;&quot;</span>+flag+<span class="hljs-string">&quot;&#125;&quot;</span>)<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">key = <span class="hljs-string">&#x27;~&#125;|&#123;zyxwvutsrqponmlkjihgfedcba`_^]\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?&gt;=&lt;;:9876543210/.-,+*)(\&#x27;&amp;%$# !&quot;&#x27;</span>  <br>v4 = [<span class="hljs-number">42</span>,<span class="hljs-number">70</span>,<span class="hljs-number">39</span>,<span class="hljs-number">34</span>,<span class="hljs-number">78</span>,<span class="hljs-number">44</span>,<span class="hljs-number">34</span>,<span class="hljs-number">40</span>,<span class="hljs-number">73</span>,<span class="hljs-number">63</span>,<span class="hljs-number">43</span>,<span class="hljs-number">64</span>]<br>x = []<br>flag = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> v4:<br>  x.append(key.find(<span class="hljs-built_in">chr</span>(i))+<span class="hljs-number">1</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> x:<br>  flag += <span class="hljs-built_in">chr</span>(i)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;flag&#123;&quot;</span>+flag+<span class="hljs-string">&quot;&#125;&quot;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>flag{U9X_1S_W6@T?}</p>
 <hr>
 <p>Day5 - apk文件分析，pyc反汇编，模运算</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Reverse-Learn/">Reverse Learn</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Reverse/">Reverse</a>
-                    
-                  </div>
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Reverse-Learn/" class="category-chain-item">Reverse Learn</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Reverse/" class="print-no-link">#Reverse</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Reverse Learning - Day5</div>
+      <div>http://example.com/2022/04/02/Reverse-Learning-Day5/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>M4cRe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
               
               
-                <div class="post-prevnext">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/10/Web-Learning-%20PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
+                      <a href="/2023/12/10/Web-Learning-%20PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="Web Learning -PHP序列化">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Web Learning -PHP序列化</span>
                         <span class="visible-mobile">上一篇</span>
@@ -327,7 +415,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/31/Reverse-Learning-Day4/">
+                      <a href="/2022/03/31/Reverse-Learning-Day4/" title="Reverse Learning - Day4">
                         <span class="hidden-mobile">Reverse Learning - Day4</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -343,19 +431,53 @@
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
 
 
     
@@ -380,42 +502,45 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      辽ICP备2022002631号
+    </a>
+  </span>
+  
+</div>
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        辽ICP备2022002631号
-      </a>
-    </span>
-    
-  </div>
-
-
   
-</footer>
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://unpkg.zhimg.com/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://unpkg.zhimg.com/nprogress@0/nprogress.min.css" />
@@ -434,10 +559,7 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
 
-
-  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -447,45 +569,115 @@
 
 
 
-  
-
-
 
   
-    <script  src="https://unpkg.zhimg.com/tocbot@4/dist/tocbot.min.js" ></script>
+<script>
+  Fluid.utils.createScript('https://unpkg.zhimg.com/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://unpkg.zhimg.com/clipboard@2/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
   
+<script>
+  Fluid.utils.createScript('https://unpkg.zhimg.com/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
   
-    <script  src="https://unpkg.zhimg.com/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://unpkg.zhimg.com/anchor-js@4/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://unpkg.zhimg.com/clipboard@2/dist/clipboard.min.js" ></script>
-  
+<script>
+  Fluid.utils.createScript('https://unpkg.zhimg.com/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
